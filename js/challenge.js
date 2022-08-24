@@ -2,7 +2,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // Call the timer increment
-    setInterval(counterIncrement, 1000);
+    const counterIncrease = setInterval(counterIncrement, 1000);
+    //const counterIncrease = start()
+    window. timer = counterIncrease
 
     // Listen to the minus button
     const minus = document.querySelector('#minus');
@@ -26,11 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+// function start(){
+//     setInterval(counterIncrement, 1000);
+// }
+
 // Set the timer increment for counter
 function counterIncrement(){
     // Grab counter
     const counter = document.querySelector('#counter');
-    counter.textContent = parseInt(counter.textContent, 10) + 1;
+    counter.textContent = parseInt(counter.textContent, 10) + 1; // Increase counter by 1
 } 
 
 // Decrement the counter value
@@ -73,6 +79,23 @@ function pauseResume(event) {
     }
     event.target.innerText = labels[event.target.innerText] //switch the label of the button
 
+    // Declare buttons and elements to disable
+    //const counterIncrease = setInterval(counterIncrement, 1000);
+    const minus = document.querySelector('#minus');
+    const plus = document.querySelector('#plus');
+    const heart = document.querySelector('#heart');
+
+    // Disable all other buttons and pause counter if you click the pause button
+    if (event.target.innerText === 'resume'){
+        minus.disabled = true
+        plus.disabled = true
+        heart.disabled = true
+        clearInterval(timer)
+    } else {
+        minus.disabled = false
+        plus.disabled = false
+        heart.disabled = false
+    }
 }
 
 // Create a post comment function
