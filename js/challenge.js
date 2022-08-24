@@ -1,6 +1,9 @@
 // Interact with the simple liking application
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Call the timer increment
+    setInterval(counterIncrement, 1000);
+
     // Listen to the minus button
     const minus = document.querySelector('#minus');
     minus.addEventListener('click', decrementCounter);
@@ -22,6 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', postComment);
 
 })
+
+// Set the timer increment for counter
+function counterIncrement(){
+    // Grab counter
+    const counter = document.querySelector('#counter');
+    counter.textContent = parseInt(counter.textContent, 10) + 1;
+} 
 
 // Decrement the counter value
 function decrementCounter() {
