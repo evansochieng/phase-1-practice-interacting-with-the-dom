@@ -1,12 +1,22 @@
 // Interact with the simple liking application
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Grab the form
-    const form = document.querySelector('form');
+    // Listen to the minus button
+    const minus = document.querySelector('#minus')
+    minus.addEventListener('click', decrementCounter)
 
-    // Listen to the form submission
+    // Grab the form and listen to the form submission
+    const form = document.querySelector('form');
     form.addEventListener('submit', postComment);
 })
+
+// Decrement the counter value
+function decrementCounter() {
+    // Grab the counter
+    const counter = document.querySelector('#counter')
+    // Decrement the value by 1
+    counter.textContent -= 1
+}
 
 // Create a post comment function
 function postComment(event) {
