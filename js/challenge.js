@@ -2,9 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // Call the timer increment
-    const counterIncrease = setInterval(counterIncrement, 1000);
-    //const counterIncrease = start()
-    window. timer = counterIncrease
+    const counterIncrease = setInterval(counterIncrement, 1000); //store interval ID
+    window. timer = counterIncrease //create a gloabl variable to store the interval ID
 
     // Listen to the minus button
     const minus = document.querySelector('#minus');
@@ -27,10 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', postComment);
 
 })
-
-// function start(){
-//     setInterval(counterIncrement, 1000);
-// }
 
 // Set the timer increment for counter
 function counterIncrement(){
@@ -95,6 +90,7 @@ function pauseResume(event) {
         minus.disabled = false
         plus.disabled = false
         heart.disabled = false
+        timer = setInterval(counterIncrement, 1000);
     }
 }
 
