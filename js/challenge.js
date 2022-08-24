@@ -5,9 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const minus = document.querySelector('#minus')
     minus.addEventListener('click', decrementCounter)
 
+    // Listen to the plus button
+    const plus = document.querySelector('#plus')
+    plus.addEventListener('click', incrementCounter)
+
+
     // Grab the form and listen to the form submission
     const form = document.querySelector('form');
     form.addEventListener('submit', postComment);
+
+    
 })
 
 // Decrement the counter value
@@ -15,7 +22,15 @@ function decrementCounter() {
     // Grab the counter
     const counter = document.querySelector('#counter')
     // Decrement the value by 1
-    counter.textContent -= 1
+    counter.textContent = parseInt(counter.textContent, 10) - 1
+}
+
+// Increment the counter value
+function incrementCounter() {
+    // Grab the counter
+    const counter = document.querySelector('#counter')
+    // Increment the value by 1 - First convert in to number
+    counter.textContent = parseInt(counter.textContent, 10) + 1
 }
 
 // Create a post comment function
